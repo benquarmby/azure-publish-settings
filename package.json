@@ -1,0 +1,25 @@
+{
+  "name": "azure-publish-settings",
+  "description": "Reads Azure publish settings for use with Web Deploy, FTP, Git and Kudu.",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "author": "Ben Quarmby",
+  "contributors": [
+    "Ben Quarmby <ben@quarm.by>"
+  ],
+  "dependencies": {
+    "bluebird": "^3.1.1",
+    "xml2js": "^0.4.16"
+  },
+  "homepage": "https://github.com/benquarmby/azure-publish-settings#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benquarmby/azure-publish-settings.git"
+  },
+  "keywords": [
+    "azure"
+  ],
+  "bugs": {
+    "url": "https://github.com/benquarmby/azure-publish-settings/issues"
+  }
+}
