@@ -1,39 +1,3 @@
-# azure-publish-settings
-Reads Azure publish settings for use with Web Deploy, FTP, Git and Kudu.
-
-## Installation
-```
-npm install azure-publish-settings --save
-```
-
-## Usage
-```JavaScript
-var aps = require('azure-publish-settings');
-
-// Traditional
-aps.read('path/to/MySite.PublishSettings', function (err, settings) {
-    var siteName = settings.name;
-    var username = settings.web.username;
-    var password = settings.web.password;
-
-    // Use settings with kudu-api
-});
-
-// Promise
-aps.readAsync('path/to/MySite.PublishSettings')
-    .then(function (settings) {
-        var ftpUrl = settings.ftp.url;
-        var username = settings.ftp.username;
-        var password = settings.ftp.password;
-
-        // Use settings with an FTP client
-    });
-```
-
-## Schema
-The following schema describes the output.
-
-```JSON
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
@@ -137,4 +101,3 @@ The following schema describes the output.
         }
     }
 }
-```
