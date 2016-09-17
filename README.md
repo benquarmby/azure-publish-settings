@@ -8,10 +8,10 @@ npm install azure-publish-settings --save
 
 ## Usage
 ```JavaScript
-var aps = require('azure-publish-settings');
+var aps = require("azure-publish-settings");
 
 // Traditional
-aps.read('path/to/MySite.PublishSettings', function (err, settings) {
+aps.read("path/to/MySite.PublishSettings", function (err, settings) {
     var siteName = settings.name;
     var username = settings.web.username;
     var password = settings.web.password;
@@ -20,7 +20,7 @@ aps.read('path/to/MySite.PublishSettings', function (err, settings) {
 });
 
 // Promise
-aps.readAsync('path/to/MySite.PublishSettings')
+aps.readAsync("path/to/MySite.PublishSettings")
     .then(function (settings) {
         var ftpUrl = settings.ftp.url;
         var username = settings.ftp.username;

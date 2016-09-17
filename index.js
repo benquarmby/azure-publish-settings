@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
-var fs = require('fs');
-var xml = require('xml2js');
-var Promise = require('bluebird');
+var fs = require("fs");
+var xml = require("xml2js");
+var Promise = require("bluebird");
 
 var siteNamePattern = /\/\/([a-z0-9\-]+)\./i;
 
@@ -14,15 +14,15 @@ var methodHandlers = {
         var passive = attr.ftpPassiveMode;
         passive = passive && passive.toLowerCase();
 
-        profile.passive = passive === 'true';
+        profile.passive = passive === "true";
     }
 };
 
 function parseMethod(method) {
     method = method && method.toLowerCase();
 
-    return method === 'msdeploy'
-        ? 'web'
+    return method === "msdeploy"
+        ? "web"
         : method;
 }
 
@@ -84,7 +84,7 @@ function read(publishSettingsPath, callback) {
         }
 
         var options = {
-            attrkey: 'attr'
+            attrkey: "attr"
         };
 
         try {
