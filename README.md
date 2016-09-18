@@ -1,5 +1,5 @@
 # azure-publish-settings
-Reads Azure publish settings for use with Web Deploy, FTP, Git and Kudu.
+Reads Azure publish settings for use with Web Deploy, FTP, Git and Kudu. Includes first class support for working with [kudu-api](https://github.com/itsananderson/kudu-api).
 
 ## Installation
 ```
@@ -12,11 +12,11 @@ var aps = require("azure-publish-settings");
 
 // Traditional
 aps.read("path/to/MySite.PublishSettings", function (err, settings) {
-    var siteName = settings.name;
+    var iisSite = settings.web.iisSite;
     var username = settings.web.username;
     var password = settings.web.password;
 
-    // Use settings with kudu-api
+    // Use settings with Web Deploy etc.
 });
 
 // Promise
@@ -28,6 +28,16 @@ aps.readAsync("path/to/MySite.PublishSettings")
 
         // Use settings with an FTP client
     });
+
+// Integration with kudu-api
+var kuduApi = require("kudu-api");
+
+aps.read("path/to/MySite.PublishSettings", function (err, settings) {
+    // Use the "kudu" property to pass credentials directly to kudu-api
+    var api = kuduApi(settings.kudu);
+
+    // Use kudu-api to manage an Azure web app
+});
 ```
 
 ## Schema
