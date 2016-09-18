@@ -1,0 +1,8 @@
+
+/.vscode/
+/artifacts/
+/submodules/
+.gitmodules
+.npmignore
+gulpfile.js
+*-tests.js
