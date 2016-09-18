@@ -62,4 +62,37 @@ describe("azure-publish-settings", function () {
             });
         });
     });
+
+    describe("readAsync success", function () {
+        let settings;
+
+        beforeAll(function (done) {
+            aps.readAsync(publishSettingsPath)
+                .then(function (publishSettings) {
+                    settings = publishSettings;
+                    done();
+                })
+                .catch(done.fail);
+        });
+
+        it("should return populated settings", function () {
+            expect(settings).toBeTruthy();
+            expect(settings.name).toBe("test");
+            expect(settings.url).toBe("http://test.azurewebsites.net");
+            expect(settings.profiles.length).toBe(2);
+            expect(settings.web).toBeTruthy();
+            expect(settings.ftp).toBeTruthy();
+        });
+    });
+
+    describe("readAsync failure", function () {
+        it("should return ENOENT to catch", function (done) {
+            aps.readAsync("non-existent.PublishSettings")
+                .then(done.fail)
+                .catch(function (err) {
+                    expect(err.code).toBe("ENOENT");
+                    done();
+                });
+        });
+    });
 });
