@@ -38,9 +38,10 @@ gulp.task("lint-test", function () {
     }));
 });
 
-gulp.task("watch", ["lint-lib", "lint-test"], function () {
+gulp.task("watch", ["lint-lib", "lint-test", "test"], function () {
     gulp.watch(libPaths, ["lint-lib"]);
     gulp.watch(testPaths, ["lint-test"]);
+    gulp.watch(libPaths.concat(testPaths), ["test"]);
 });
 
 gulp.task("test", function () {
