@@ -51,6 +51,15 @@ describe("azure-publish-settings", function () {
             expect(ftp.passive).toBe(true);
             expect(ftp.url).toBe("ftp://waws-test.ftp.azurewebsites.windows.net/site/wwwroot");
         });
+
+        it("should contain kudu settings", function () {
+            let kudu = settings.kudu;
+
+            expect(kudu).toBeTruthy();
+            expect(kudu.website).toBe("test");
+            expect(kudu.username).toBe("$test");
+            expect(kudu.password).toBe("WEB-PASSWORD");
+        });
     });
 
     describe("read failure", function () {
@@ -82,6 +91,7 @@ describe("azure-publish-settings", function () {
             expect(settings.profiles.length).toBe(2);
             expect(settings.web).toBeTruthy();
             expect(settings.ftp).toBeTruthy();
+            expect(settings.kudu).toBeTruthy();
         });
     });
 

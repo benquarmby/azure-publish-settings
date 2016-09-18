@@ -75,6 +75,14 @@ function read(publishSettingsPath, callback) {
             return callback(e);
         }
 
+        if (settings.web) {
+            settings.kudu = {
+                website: settings.name,
+                username: settings.web.username,
+                password: settings.web.password
+            };
+        }
+
         return callback(null, settings);
     }
 
